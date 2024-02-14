@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.UUID;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -18,12 +17,10 @@ public class MessageProcessorTest {
 	private MessageProcessor messageProcessor;
 	private Player player1;
 	private Player player2;
-	private BlockingQueue<Message> incomingMessages;
 
 	@BeforeEach
 	public void setUp() {
-		incomingMessages = new LinkedBlockingQueue<>();
-		messageProcessor = new MessageProcessor(incomingMessages);
+		messageProcessor = new MessageProcessor(new LinkedBlockingQueue<>());
 		player1 = new Player(UUID.randomUUID(), "Player1", messageProcessor);
 		player2 = new Player(UUID.randomUUID(), "Player2", messageProcessor);
 	}
@@ -32,7 +29,7 @@ public class MessageProcessorTest {
 	public void testProcessMessage() throws InterruptedException {
 		String messageText = "Hello, Player2!";
 		Message message = new Message(player1, player2, messageText);
-		incomingMessages.put(message);
+		messageProcessor.addMessage(message);
 		messageProcessor.startProcessing(10);
 		assertTrue(player1.getCounter().containsKey(player2.getId()));
 		assertEquals(10, player1.getCounter().get(player2.getId()).intValue());
