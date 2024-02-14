@@ -13,6 +13,8 @@ The Player Communicator Service is a Java-based messaging service designed for h
 1. Clone the repository to your local machine.
 2. Import the project into your IDE as a Maven or Gradle project, depending on your project setup.
 3. Ensure that your IDE recognizes the src folder as the source root.
+### Run the code
+The code can be run through the following command ``sh run.sh`` 
 ### Usage
 1. Initialize a BlockingQueue<Message> instance with your desired capacity.
 2. Create an instance of MessageProcessor by passing the BlockingQueue<Message> to its constructor.
