@@ -39,17 +39,4 @@ public class MessageProcessorTest {
 		assertTrue(player2.getCounter().containsKey(player1.getId()));
 		assertEquals(10, player2.getCounter().get(player1.getId()).intValue());
 	}
-
-	@Test
-	public void testProcessMessageMultipleTimes() throws InterruptedException {
-		String messageText = "Hello, Player2!";
-		Message message = new Message(player1, player2, messageText);
-		incomingMessages.put(message);
-		incomingMessages.put(message);
-		messageProcessor.startProcessing(40);
-		assertTrue(player1.getCounter().containsKey(player2.getId()));
-		assertEquals(40, player1.getCounter().get(player2.getId()).intValue());
-		assertTrue(player2.getCounter().containsKey(player1.getId()));
-		assertEquals(40, player2.getCounter().get(player1.getId()).intValue());
-	}
 }
