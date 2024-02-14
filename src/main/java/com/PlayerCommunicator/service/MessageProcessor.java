@@ -50,7 +50,6 @@ public class MessageProcessor {
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
