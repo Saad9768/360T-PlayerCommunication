@@ -26,7 +26,7 @@ public class MessageProcessorTest {
 	}
 
 	@Test
-	public void testProcessMessage() throws InterruptedException {
+	public void testProcessMessage() {
 		String messageText = "Hello, Player2!";
 		Message message = new Message(player1, player2, messageText);
 		messageProcessor.addMessage(message);
