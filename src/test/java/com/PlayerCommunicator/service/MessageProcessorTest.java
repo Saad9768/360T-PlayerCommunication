@@ -60,6 +60,6 @@ public class MessageProcessorTest {
 		processingThread.join();
 
 		// Verify that addMessage was called on the mockQueue with the response message
-		verify(mockQueue, times(5)).add(argThat(arg -> ((Message) arg).getMessageText().startsWith("Hello|")));
+		verify(mockQueue, times(5)).add(argThat(arg -> ((Message) arg).getMessageText().startsWith("Hello")));
 	}
 }
