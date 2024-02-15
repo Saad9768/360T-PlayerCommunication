@@ -15,6 +15,13 @@ The Player Communicator Service is a Java-based messaging service designed for h
 3. Ensure that your IDE recognizes the src folder as the source root.
 ### Run the code
 The code can be run through the following command ``sh run.sh`` 
+1. This will create a ``player-communication-1.0-SNAPSHOT.jar`` file in the target folder.
+2. It will also run the unit test case.
+3. It will finally run the code.
+
+### Explanation
+#### Three players are created and they are communicating with each other with the same shared queue. It will send the message back accordingly back to the sender with concatenating the previous message respectively.
+
 ### Usage
 1. Initialize a BlockingQueue<Message> instance with your desired capacity.
 2. Create an instance of MessageProcessor by passing the BlockingQueue<Message> to its constructor.
